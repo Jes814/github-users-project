@@ -1,7 +1,6 @@
 import React, { FC, useState } from "react";
 import Search from "./module/search/Search";
 import UserInfo from "./module/user/UserInfo";
-import Loader from "./module/loader/Loader";
 
 export interface UserDetails {
   userName: string;
@@ -16,23 +15,12 @@ export interface UserDetails {
   organizations_url: string;
 }
 
-interface UserNameQuery {
-  target: {
-    value: string;
-  };
-}
-
-interface Submission {
-  preventDefault: () => void;
-}
-
 const App: FC = () => {
-  const [user, setUser] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [isDisabled, setIsDisabled] = useState(true);
   const [userData, setUserData] = useState<UserDetails | undefined>();
 
-  const getUser = (username: any) => {
+  const getUser = (username: string) => {
+    console.log("username", username);
     setIsLoading(true);
     return fetch(`https://api.github.com/users/${username}`)
       .then((response) => response.json())
@@ -42,18 +30,10 @@ const App: FC = () => {
       });
   };
 
-  const handleSearchName = (e: UserNameQuery) => {
-    setUser(e.target.value);
-    if (e.target.value === "") {
-      setIsDisabled(true);
-    } else {
-      setIsDisabled(false);
-    }
-  };
-
-  const handleSubmit = async (e: Submission) => {
+  const handleSearchName = async (e: any) => {
+    console.log(e.target.value);
     e.preventDefault();
-    let fetchUser = await getUser(user);
+    let fetchUser = await getUser(e.target.value);
     setUserData({
       userName: fetchUser.login,
       id: fetchUser.id,
@@ -70,12 +50,7 @@ const App: FC = () => {
 
   return (
     <div>
-      <Search
-        handleSubmit={handleSubmit}
-        handleSearchName={handleSearchName}
-        user={user}
-        isDisabled={isDisabled}
-      />
+      <Search handleSearchName={handleSearchName} />
       <UserInfo userData={userData} isLoading={isLoading} />
     </div>
   );
