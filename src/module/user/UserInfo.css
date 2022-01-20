@@ -1,0 +1,88 @@
+/* container */
+
+.cardContainer {
+  border: 1px solid #5dade2;
+  border-radius: 15px;
+  height: 100%;
+  padding: 20px;
+  margin: 2%;
+  background-color: #fbfcfc;
+}
+
+/* First Container */
+
+.firstContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.imageCOntainer {
+  width: 25%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.userMainDetailsContainer {
+  width: 75%;
+  margin-left: 2%;
+  margin-right: 2%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.userDetailsOneContainer {
+  width: 50%;
+}
+
+.userDetailsTwoContainer {
+  width: 50%;
+}
+
+.userDetailsOne {
+  text-transform: uppercase;
+  color: #5dade2;
+  font-size: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.userDetailsTwo {
+  text-transform: uppercase;
+  color: #5dade2;
+  font-size: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Second Container */
+
+.secondContainer {
+  display: flex;
+}
+
+.secondDetailsContainerOne {
+  width: 50%;
+}
+
+.secondDetailsContainerTwo {
+  width: 50%;
+}
+
+.secondUserDetails {
+  padding: 2%;
+  text-transform: uppercase;
+  color: #5dade2;
+  font-size: 17px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.followingUrl {
+  text-transform: uppercase;
+  color: #5dade2;
+  font-size: 17px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
